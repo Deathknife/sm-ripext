@@ -4,6 +4,7 @@ import os
 libcurl = builder.RunScript('curl/lib/AMBuilder')
 libjansson = builder.RunScript('jansson/src/AMBuilder')
 libmbedtls = builder.RunScript('mbedtls/library/AMBuilder')
+libnghttp2 = builder.RunScript('nghttp2/lib/AMBuilder')
 libz = builder.RunScript('zlib/AMBuilder')
 
 binary = Extension.Library(builder, 'rip.ext')
@@ -24,6 +25,7 @@ binary.compiler.postlink += [
   libcurl.binary,
   libjansson.binary,
   libmbedtls.binary,
+  libnghttp2.binary,
   libz.binary,
 ]
 if builder.target_platform == 'linux':
